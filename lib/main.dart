@@ -26,6 +26,11 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Expense Tracker'),
+        // actions: <Widget> [
+        //   IconButton(
+        //     icon: Icon(Icons.),
+        //     onPressed: onPressed)
+        // ],
       ),
       body: SingleChildScrollView(
         child: Column(

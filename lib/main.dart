@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import './transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,6 +30,11 @@ class MyHomePage extends StatelessWidget {
     Transaction(id: 't2', title: 'New Bike', amount: 300, date: DateTime.now()),
   ];
 
+  // String titleInput;
+  // String amountInput;
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +42,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Expense Tracker'),
       ),
       body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
@@ -45,6 +51,39 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.pink,
                 child: Text('Card'),
                 elevation: 5,
+              ),
+            ),
+            Card(
+              elevation: 10,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: <Widget>[
+                    TextField(
+                      // onChanged: (val) {
+                      //   // this.titleInput = val;
+                      //   // print(titleInput);
+                      // },
+                      controller: titleController,
+                      decoration: InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(
+                      // onChanged: (val) => this.amountInput = val,
+                      controller: amountController,
+                      decoration: InputDecoration(labelText: 'Amount'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        print(titleController.text);
+                        print(amountController.text);
+                      },
+                      child: Text(
+                        'Add Transaction',
+                        style: TextStyle(color: Colors.purple),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Column(
@@ -81,7 +120,7 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            tx.date.toString(),
+                            DateFormat.yMMMd().format(tx.date),
                             style: TextStyle(
                               fontSize: 15,
                               color: Colors.grey,

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:expense_tracker/models/transaction.dart';
 import 'package:expense_tracker/widgets/new_transaction.dart';
 import 'package:expense_tracker/widgets/transaction_list.dart';
@@ -12,11 +14,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Personal Expenses',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: 'OpenSans',
+          textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+          appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                    headline6: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontSize: 20,
+                  fontWeight: FontWeight.normal,
+                )),
+          )),
       home: MyHomePage(),
     );
   }
@@ -29,9 +47,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-        id: 't1', title: 'New Shoes', amount: 67.33, date: DateTime.now()),
-    Transaction(id: 't2', title: 'New Bike', amount: 300, date: DateTime.now()),
+    // Transaction(
+    //     id: 't1', title: 'New Shoes', amount: 67.33, date: DateTime.now()),
+    // Transaction(id: 't2', title: 'New Bike', amount: 300, date: DateTime.now()),
   ];
 
   void _addNewTransaction(String title, double amount) {
@@ -58,7 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expense Tracker'),
+        title: Text(
+          'Personal Expenses',
+          style: TextStyle(fontFamily: 'Roboto'),
+        ),
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.add),
@@ -75,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 width: double.infinity,
                 child: Card(
-                  color: Colors.pink,
+                  color: Theme.of(context).primaryColor,
                   child: Text('Card'),
                   elevation: 5,
                 ),

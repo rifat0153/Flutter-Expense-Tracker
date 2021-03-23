@@ -11,6 +11,7 @@ class TransactionList extends StatelessWidget {
     return Container(
       height: 200,
       child: ListView.builder(
+        itemCount: transactions.length,
         itemBuilder: (ctx, index) {
           return Card(
             child: Row(
@@ -20,7 +21,7 @@ class TransactionList extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       border: Border.all(
-                    color: Colors.purple,
+                    color: Theme.of(context).primaryColorDark,
                     width: 2,
                   )),
                   margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
@@ -29,7 +30,7 @@ class TransactionList extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Colors.purple),
+                        color: Theme.of(context).primaryColor),
                   ),
                 ),
                 Column(
@@ -37,10 +38,7 @@ class TransactionList extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       transactions[index].title,
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
                       DateFormat.yMMMd().format(transactions[index].date),
@@ -55,7 +53,6 @@ class TransactionList extends StatelessWidget {
             ),
           );
         },
-        itemCount: transactions.length,
       ),
     );
   }

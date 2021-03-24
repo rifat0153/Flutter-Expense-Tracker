@@ -50,9 +50,60 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //     id: 't1', title: 'New Shoes', amount: 67.33, date: DateTime.now()),
-    // Transaction(id: 't2', title: 'New Bike', amount: 300, date: DateTime.now()),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 67.33,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'New Bike',
+      amount: 400,
+      date: DateTime.now().subtract(
+        Duration(days: 3),
+      ),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Shoes',
+      amount: 67.33,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'New Bike',
+      amount: 3700,
+      date: DateTime.now().subtract(
+        Duration(days: 2),
+      ),
+    ),
+    Transaction(
+      id: 't5',
+      title: 'New Shoes',
+      amount: 67.33,
+      date: DateTime.now().subtract(
+        Duration(days: 3),
+      ),
+    ),
+    Transaction(
+      id: 't6',
+      title: 'New Bike',
+      amount: 100,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),
+    Transaction(
+      id: 't7',
+      title: 'New Shoes',
+      amount: 67.33,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't8',
+      title: 'New Bike',
+      amount: 100,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),
   ];
 
   List<Transaction> get _recentTransactions {
@@ -93,27 +144,41 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Personal Expenses',
-          style: TextStyle(fontFamily: 'Roboto'),
-        ),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {
-                _startAddNewTransaction(context);
-              }),
-        ],
+    final appBar = AppBar(
+      title: Text(
+        'Personal Expenses',
+        style: TextStyle(fontFamily: 'Roboto'),
       ),
+      actions: <Widget>[
+        IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              _startAddNewTransaction(context);
+            }),
+      ],
+    );
+
+    return Scaffold(
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Chart(_recentTransactions),
-              TransactionList(_userTransactions, _deleteTransaction),
+              Container(
+                height: (MediaQuery.of(context).size.height -
+                        appBar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.3,
+                child: Chart(_recentTransactions),
+              ),
+              Container(
+                height: (MediaQuery.of(context).size.height -
+                        appBar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.7,
+                child: TransactionList(_userTransactions, _deleteTransaction),
+              ),
             ]),
       ),
       floatingActionButton: FloatingActionButton(

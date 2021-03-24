@@ -1,6 +1,6 @@
 # expense_tracker
 
-A new Flutter project.
+This flutter App keeps track of last 7 day spendings.
 
 ## Getting Started
 

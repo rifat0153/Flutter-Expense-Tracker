@@ -55,60 +55,60 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'New Shoes',
-    //   amount: 67.33,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'New Bike',
-    //   amount: 400,
-    //   date: DateTime.now().subtract(
-    //     Duration(days: 3),
-    //   ),
-    // ),
-    // Transaction(
-    //   id: 't3',
-    //   title: 'New Shoes',
-    //   amount: 67.33,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't4',
-    //   title: 'New Bike',
-    //   amount: 3700,
-    //   date: DateTime.now().subtract(
-    //     Duration(days: 2),
-    //   ),
-    // ),
-    // Transaction(
-    //   id: 't5',
-    //   title: 'New Shoes',
-    //   amount: 67.33,
-    //   date: DateTime.now().subtract(
-    //     Duration(days: 3),
-    //   ),
-    // ),
-    // Transaction(
-    //   id: 't6',
-    //   title: 'New Bike',
-    //   amount: 100,
-    //   date: DateTime.now().subtract(Duration(days: 4)),
-    // ),
-    // Transaction(
-    //   id: 't7',
-    //   title: 'New Shoes',
-    //   amount: 67.33,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't8',
-    //   title: 'New Bike',
-    //   amount: 100,
-    //   date: DateTime.now().subtract(Duration(days: 4)),
-    // ),
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 67.33,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'New Bike',
+      amount: 400,
+      date: DateTime.now().subtract(
+        Duration(days: 3),
+      ),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Shoes',
+      amount: 67.33,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'New Bike',
+      amount: 3700,
+      date: DateTime.now().subtract(
+        Duration(days: 2),
+      ),
+    ),
+    Transaction(
+      id: 't5',
+      title: 'New Shoes',
+      amount: 67.33,
+      date: DateTime.now().subtract(
+        Duration(days: 3),
+      ),
+    ),
+    Transaction(
+      id: 't6',
+      title: 'New Bike',
+      amount: 100,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),
+    Transaction(
+      id: 't7',
+      title: 'New Shoes',
+      amount: 67.33,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't8',
+      title: 'New Bike',
+      amount: 100,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),
   ];
 
   bool _showChart = false;
